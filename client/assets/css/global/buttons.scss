@@ -1,0 +1,10 @@
+.btn-basic {
+  font-weight: bold;
+  color: #2ab27b;
+  border: none;
+  padding: 5px 10px;
+  width: 100%;
+  &:hover {
+    color: #228b60;
+  }
+}

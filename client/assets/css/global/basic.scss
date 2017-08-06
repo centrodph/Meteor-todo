@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+body {
+  font-family: 'Open Sans', sans-serif;
+  padding-top: 80px;
+}
+
+label {
+  font-weight: 700;
+  display: block;
+  font-size: 0.9em;
+}
+
+.form-input {
+  padding: 5px 0;
+}
+
+input {
+  padding: 5px;
+  font-size: 12px;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #999b99;
+  font-size: 12px;
+  font-style: italic;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #999b99;
+  font-size: 12px;
+  font-style: italic;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #999b99;
+  font-size: 12px;
+  font-style: italic;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #999b99;
+  font-size: 12px;
+  font-style: italic;
+}
