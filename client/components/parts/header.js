@@ -11,6 +11,7 @@ class Header extends UserStatus {
   }
   toLogout() {
     Meteor.logout();
+    window.location.reload();
   }
   toSignup() {
     this.props.history.push('/signup');

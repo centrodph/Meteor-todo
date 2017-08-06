@@ -77,7 +77,12 @@ class MyTodos extends UserStatus {
 
 export default createContainer(props => {
   if (!Meteor.userId()) {
-    return { mytodos: JSON.parse(localStorage.getItem('todos')) || [] };
+    let list = JSON.parse(localStorage.getItem('todos'));
+    if (!Array.isArray(list)) {
+      localStorage.setItem('todos', JSON.stringify([]));
+      list = [];
+    }
+    return { mytodos: list };
   }
   Meteor.subscribe('mytodos');
   return { mytodos: TodoCollection.find({}).fetch() };
