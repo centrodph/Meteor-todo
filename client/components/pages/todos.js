@@ -26,9 +26,14 @@ class MyTodos extends UserStatus {
     return this.logic.remove.call(this, _id);
   }
   getList() {
-    return this.props.mytodos.map(todo => {
+    return this.props.mytodos.map((todo, index) => {
       return (
-        <div className="todo-box well" key={todo._id}>
+        <div
+          className={
+            index % 2 == 0 ? 'todo-box well odd' : 'todo-box well even'
+          }
+          key={todo._id}
+        >
           <div className="row">
             <div className="col-xs-10">
               <h3>
@@ -42,11 +47,9 @@ class MyTodos extends UserStatus {
             </div>
             <div className="col-xs-2">
               <button
-                className="btn btn-sm btn-danger pull-right"
+                className="glyphicon glyphicon-trash btn-remove-todo pull-right"
                 onClick={this.removeTask.bind(this, todo._id)}
-              >
-                X
-              </button>
+              />
             </div>
           </div>
         </div>
@@ -60,11 +63,9 @@ class MyTodos extends UserStatus {
           <h3>
             MyTodos
             <button
-              className="btn btn-sm btn-success pull-right"
+              className="glyphicon glyphicon-plus-sign btn-add-todo pull-right"
               onClick={this.createNewTask.bind(this)}
-            >
-              New Task
-            </button>
+            />
           </h3>
           <div className="todo-boxes">
             {this.getList()}
