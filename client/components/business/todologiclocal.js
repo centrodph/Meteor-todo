@@ -27,7 +27,10 @@ export default class TodoLogicLocal {
   }
   create() {
     const todoId = new Date().getTime();
-    this.props.mytodos = this.props.mytodos.push({
+    if (!Array.isArray(this.props.mytodos)) {
+      this.props.mytodos = [];
+    }
+    this.props.mytodos.push({
       _id: todoId,
       createdAt: new Date(),
       updatedAt: new Date()

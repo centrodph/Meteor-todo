@@ -65,7 +65,11 @@ class TodoForm extends UserStatus {
 export default createContainer(props => {
   const { todoId } = props.match.params;
   if (!Meteor.userId()) {
-    const list = JSON.parse(localStorage.getItem('todos')) || [{}];
+    let list = JSON.parse(localStorage.getItem('todos'));
+    if (!Array.isArray(list)) {
+      localStorage.setItem('todos', JSON.stringify([]));
+      list = [];
+    }
     return {
       mytodo: list.find(todo => todo._id == todoId)
     };
