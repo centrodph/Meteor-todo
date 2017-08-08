@@ -95,8 +95,6 @@ class Header extends UserStatus {
             </button>
             <a
               className="navbar-brand"
-              data-toggle="collapse"
-              data-target="#navbar"
               href="#"
               onClick={this.toList.bind(this)}
             >
