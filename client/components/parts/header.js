@@ -5,9 +5,16 @@ import UserStatus from '../business/userstatus';
 class Header extends UserStatus {
   constructor(props) {
     super(props);
+    this.open = false;
   }
+
+  chageState() {
+    this.open = !this.open;
+  }
+
   toList() {
     this.props.history.push('/');
+    this.chageState();
   }
   toLogout() {
     Meteor.logout();
@@ -15,16 +22,24 @@ class Header extends UserStatus {
   }
   toSignup() {
     this.props.history.push('/signup');
+    this.chageState();
   }
   toSignin() {
     this.props.history.push('/signin');
+    this.chageState();
   }
 
   getLinksLogged() {
     return (
       <ul className="nav navbar-nav pull-right">
         <li>
-          <a href="#" onClick={this.toLogout.bind(this)}>
+          <a
+            href="#"
+            data-toggle="collapse"
+            data-target="#navbar"
+            className="dropdown-toggle"
+            onClick={this.toLogout.bind(this)}
+          >
             Logout
           </a>
         </li>
@@ -36,12 +51,23 @@ class Header extends UserStatus {
     return (
       <ul className="nav navbar-nav pull-right">
         <li>
-          <a href="#" onClick={this.toSignin.bind(this)}>
+          <a
+            href="#"
+            data-toggle="collapse"
+            data-target="#navbar"
+            className="dropdown-toggle"
+            onClick={this.toSignin.bind(this)}
+          >
             Login
           </a>
         </li>
         <li>
-          <a href="#" onClick={this.toSignup.bind(this)}>
+          <a
+            href="#"
+            data-toggle="collapse"
+            data-target="#navbar"
+            onClick={this.toSignup.bind(this)}
+          >
             SignUp
           </a>
         </li>
@@ -69,6 +95,8 @@ class Header extends UserStatus {
             </button>
             <a
               className="navbar-brand"
+              data-toggle="collapse"
+              data-target="#navbar"
               href="#"
               onClick={this.toList.bind(this)}
             >
