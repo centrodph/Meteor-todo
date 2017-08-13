@@ -46,10 +46,12 @@ class MyTodos extends UserStatus {
               </p>
             </div>
             <div className="col-xs-2">
-              <button
-                className="glyphicon glyphicon-trash btn-remove-todo pull-right"
+              <a
+                className="btn-floating btn-large waves-effect waves-light red"
                 onClick={this.removeTask.bind(this, todo._id)}
-              />
+              >
+                <i className="material-icons">add</i>
+              </a>
             </div>
           </div>
         </div>
@@ -60,13 +62,29 @@ class MyTodos extends UserStatus {
     return (
       <div className="container">
         <div className="todo-contener">
-          <h3>
-            MyTodos
-            <button
-              className="glyphicon glyphicon-plus-sign btn-add-todo pull-right"
-              onClick={this.createNewTask.bind(this)}
-            />
-          </h3>
+          <form className="col s12">
+            <div className="row">
+              <div className="todo-top-add light-green lighten-5 col s12">
+                <div className="input-field">
+                  <input
+                    placeholder="Placeholder"
+                    id="first_name"
+                    type="text"
+                    className="validate light-green lighten-5"
+                  />
+                  <div className="fixed-action-btn horizontal">
+                    <a
+                      className=" todo-top-add btn-floating btn-large waves-effect waves-light red right"
+                      onClick={this.createNewTask.bind(this)}
+                    >
+                      <i className="material-icons">add</i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <h3 />
           <div className="todo-boxes">
             {this.getList()}
           </div>

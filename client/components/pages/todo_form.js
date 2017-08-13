@@ -44,7 +44,7 @@ class TodoForm extends UserStatus {
                 <div className="form-group">
                   <label>Description</label>
                   <textarea
-                    className="form-control"
+                    className="materialize-textarea"
                     ref="description"
                     placeholder="Description"
                     defaultValue={this.props.mytodo.description}

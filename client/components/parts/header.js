@@ -7,7 +7,9 @@ class Header extends UserStatus {
     super(props);
     this.open = false;
   }
-
+  componentDidMount() {
+    $('.button-collapse').sideNav({ edge: 'left' }); //Event to open sidebar
+  }
   chageState() {
     this.open = !this.open;
   }
@@ -31,7 +33,7 @@ class Header extends UserStatus {
 
   getLinksLogged() {
     return (
-      <ul className="nav navbar-nav pull-right">
+      <div>
         <li>
           <a
             href="#"
@@ -43,13 +45,13 @@ class Header extends UserStatus {
             Logout
           </a>
         </li>
-      </ul>
+      </div>
     );
   }
   getLinks() {
     if (this.checkUser()) return this.getLinksLogged();
     return (
-      <ul className="nav navbar-nav pull-right">
+      <div>
         <li>
           <a
             href="#"
@@ -71,38 +73,31 @@ class Header extends UserStatus {
             SignUp
           </a>
         </li>
-      </ul>
+      </div>
     );
   }
 
   render() {
     return (
-      <nav className="navbar navbar-default navbar-fixed-top">
-        <div className="container">
-          <div className="navbar-header">
-            <button
-              type="button"
-              className="navbar-toggle collapsed"
-              data-toggle="collapse"
-              data-target="#navbar"
-              aria-expanded="false"
-              aria-controls="navbar"
-            >
-              <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar" />
-              <span className="icon-bar" />
-              <span className="icon-bar" />
-            </button>
-            <a
-              className="navbar-brand"
-              href="#"
-              onClick={this.toList.bind(this)}
-            >
+      <nav className="nav-extended">
+        <div className="nav-wrapper">
+          <div className="container">
+            <a href="#" onClick={this.toList.bind(this)} className="brand-logo">
               MyTodoList
             </a>
-          </div>
-          <div id="navbar" className="collapse navbar-collapse">
-            {this.getLinks()}
+            <a
+              href="#"
+              data-activates="mobile-demo"
+              className="button-collapse"
+            >
+              <i className="material-icons">menu</i>
+            </a>
+            <ul id="nav-mobile" className="right hide-on-med-and-down">
+              {this.getLinks()}
+            </ul>
+            <ul className="side-nav" id="mobile-demo">
+              {this.getLinks()}
+            </ul>
           </div>
         </div>
       </nav>

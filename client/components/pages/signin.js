@@ -59,7 +59,7 @@ class LoginForm extends UserStatus {
               />
             </div>
             <div className="form-input login-input-submit">
-              <button>Login</button>
+              <button className="waves-effect waves-light btn">Login</button>
             </div>
           </form>
         </div>

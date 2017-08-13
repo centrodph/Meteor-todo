@@ -7,6 +7,12 @@ import {
   IndexRoute,
   browserHistory
 } from 'react-router-dom';
+import _Hammer from 'hammerjs';
+import '/node_modules/materialize-css/dist/js/materialize';
+
+// made global
+Hammer = _Hammer;
+Materialize = window.Materialize;
 
 //components
 import Header from './components/parts/header';
