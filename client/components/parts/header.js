@@ -35,13 +35,7 @@ class Header extends UserStatus {
     return (
       <div>
         <li>
-          <a
-            href="#"
-            data-toggle="collapse"
-            data-target="#navbar"
-            className="dropdown-toggle"
-            onClick={this.toLogout.bind(this)}
-          >
+          <a href="javascript:void(0);" onClick={this.toLogout.bind(this)}>
             Logout
           </a>
         </li>
@@ -53,23 +47,12 @@ class Header extends UserStatus {
     return (
       <div>
         <li>
-          <a
-            href="#"
-            data-toggle="collapse"
-            data-target="#navbar"
-            className="dropdown-toggle"
-            onClick={this.toSignin.bind(this)}
-          >
+          <a href="javascript:void(0);" onClick={this.toSignin.bind(this)}>
             Login
           </a>
         </li>
         <li>
-          <a
-            href="#"
-            data-toggle="collapse"
-            data-target="#navbar"
-            onClick={this.toSignup.bind(this)}
-          >
+          <a href="javascript:void(0);" onClick={this.toSignup.bind(this)}>
             SignUp
           </a>
         </li>
@@ -82,11 +65,15 @@ class Header extends UserStatus {
       <nav className="nav-extended">
         <div className="nav-wrapper">
           <div className="container">
-            <a href="#" onClick={this.toList.bind(this)} className="brand-logo">
+            <a
+              href="javascript:void(0);"
+              onClick={this.toList.bind(this)}
+              className="brand-logo"
+            >
               MyTodoList
             </a>
             <a
-              href="#"
+              href="javascript:void(0);"
               data-activates="mobile-demo"
               className="button-collapse"
             >

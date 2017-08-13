@@ -1,19 +1,4 @@
-.btn-remove-todo {
-  padding: 0;
-  background: none;
-  border: none;
-  color: rgba(0, 0, 0, 0.5);
-  &:hover {
-    color: rgba(137, 3, 3, 0.9);
-  }
-}
-.btn-add-todo {
-  @extend .btn-remove-todo;
-  color: rgba(3, 137, 10, 0.5);
-  &:hover {
-    color: rgba(3, 137, 10, 0.9);
-  }
-}
+@import '{}/node_modules/materialize-css/sass/materialize.scss';
 .todo-box {
   h3 {
     margin: 0;
@@ -22,10 +7,15 @@
   p {
     font-size: 11px;
   }
+  .remove-task {
+    @extend .red-text;
+    &:hover {
+      @extend .blue-text;
+    }
+  }
+
   &.odd {
-    background: rgba(0, 60, 0, 0.1);
   }
   &.even {
-    background: rgba(90, 160, 0, 0.1);
   }
 }

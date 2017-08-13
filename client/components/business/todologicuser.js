@@ -15,8 +15,8 @@ export default class TodoLogicUser {
       }
     );
   }
-  create() {
-    Meteor.call('todocollection.create', null, null, (error, todoId) => {
+  create(name) {
+    Meteor.call('todocollection.create', name, null, (error, todoId) => {
       this.props.history.push(`/todo/${todoId}`);
     });
   }

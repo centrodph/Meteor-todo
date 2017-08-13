@@ -25,13 +25,14 @@ export default class TodoLogicLocal {
     localStorage.setItem('todos', JSON.stringify(updatedList));
     this.props.history.push('/');
   }
-  create() {
+  create(name) {
     const todoId = new Date().getTime();
     if (!Array.isArray(this.props.mytodos)) {
       this.props.mytodos = [];
     }
     this.props.mytodos.push({
       _id: todoId,
+      name,
       createdAt: new Date(),
       updatedAt: new Date()
     });
