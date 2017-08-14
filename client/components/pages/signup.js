@@ -74,7 +74,7 @@ class SignUp extends Component {
               />
             </div>
             <div className="form-input signup-input-submit">
-              <button>Sign Up</button>
+              <button className="waves-effect waves-light btn">Sign Up</button>
             </div>
           </form>
         </div>

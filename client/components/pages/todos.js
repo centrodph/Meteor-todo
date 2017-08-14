@@ -50,26 +50,28 @@ class MyTodos extends UserStatus {
               <p>
                 {todo.description}
               </p>
-              <a
-                href="javascript:void(0);"
-                className="remove-task"
-                onClick={this.removeTask.bind(this, todo._id)}
-              >
-                <i className="material-icons">delete_forever</i>
-              </a>
-              <a
-                href="javascript:void(0);"
-                className="complete-task"
-                onClick={this.completeTask.bind(this, todo._id)}
-              >
-                <i
-                  className={
-                    todo.complete ? 'material-icons done' : 'material-icons'
-                  }
+              <div className="todo-actions">
+                <a
+                  href="javascript:void(0);"
+                  className="remove-task"
+                  onClick={this.removeTask.bind(this, todo._id)}
                 >
-                  check
-                </i>
-              </a>
+                  <i className="material-icons">delete_forever</i>
+                </a>
+                <a
+                  href="javascript:void(0);"
+                  className="complete-task"
+                  onClick={this.completeTask.bind(this, todo._id)}
+                >
+                  <i
+                    className={
+                      todo.complete ? 'material-icons done' : 'material-icons'
+                    }
+                  >
+                    check
+                  </i>
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@
 @import "{}/node_modules/bourbon/app/assets/stylesheets/bourbon.scss";
 
 .todo-box {
+  position: relative;
   @include border-top-radius(5px);
   @include border-bottom-radius(5px);
   h3 {
@@ -11,10 +12,23 @@
   p {
     font-size: 11px;
   }
+}
+
+.todo-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  a {
+    margin: 0 3px;
+  }
   .remove-task {
     @extend .red-text;
+    i {
+      font-size: 26px;
+    }
     &:hover {
-      @extend .blue-text;
+      @extend .text-darken-4;
     }
   }
   .complete-task {
@@ -28,10 +42,5 @@
         @extend .teal;
       }
     }
-  }
-
-  &.odd {
-  }
-  &.even {
   }
 }
