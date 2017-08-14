@@ -1,5 +1,9 @@
 @import '{}/node_modules/materialize-css/sass/materialize.scss';
+@import "{}/node_modules/bourbon/app/assets/stylesheets/bourbon.scss";
+
 .todo-box {
+  @include border-top-radius(5px);
+  @include border-bottom-radius(5px);
   h3 {
     margin: 0;
     font-size: 14px;
@@ -11,6 +15,18 @@
     @extend .red-text;
     &:hover {
       @extend .blue-text;
+    }
+  }
+  .complete-task {
+    @extend .teal-text;
+    i {
+      border: solid 1px;
+      border-radius: 50%;
+      &:hover,
+      &.done {
+        color: white;
+        @extend .teal;
+      }
     }
   }
 

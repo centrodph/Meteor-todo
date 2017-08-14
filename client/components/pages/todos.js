@@ -23,6 +23,9 @@ class MyTodos extends UserStatus {
     event.preventDefault();
     return this.logic.create.call(this, this.refs.name.value);
   }
+  completeTask(_id) {
+    return this.logic.complete.call(this, _id);
+  }
   removeTask(_id) {
     return this.logic.remove.call(this, _id);
   }
@@ -32,13 +35,13 @@ class MyTodos extends UserStatus {
         <div
           className={
             index % 2 == 0
-              ? 'todo-box odd teal lighten-4'
-              : 'todo-box even teal lighten-3'
+              ? 'todo-box odd grey lighten-5 z-depth-1'
+              : 'todo-box even grey lighten-4 z-depth-1'
           }
           key={todo._id}
         >
           <div className="row">
-            <div className="col s10">
+            <div className="col s11">
               <h3>
                 <a href="#" onClick={this.updateTask.bind(this, todo._id)}>
                   {todo.name}
@@ -47,14 +50,25 @@ class MyTodos extends UserStatus {
               <p>
                 {todo.description}
               </p>
-            </div>
-            <div className="col s2">
               <a
                 href="javascript:void(0);"
                 className="remove-task"
                 onClick={this.removeTask.bind(this, todo._id)}
               >
                 <i className="material-icons">delete_forever</i>
+              </a>
+              <a
+                href="javascript:void(0);"
+                className="complete-task"
+                onClick={this.completeTask.bind(this, todo._id)}
+              >
+                <i
+                  className={
+                    todo.complete ? 'material-icons done' : 'material-icons'
+                  }
+                >
+                  check
+                </i>
               </a>
             </div>
           </div>
@@ -69,21 +83,20 @@ class MyTodos extends UserStatus {
           <form className="col s12" onSubmit={this.createNewTask.bind(this)}>
             <div className="row">
               <div className="col s12">
-                <div className="todo-top-add green accent-2">
-                  <div className="input-field">
+                <div className="todo-top-add teal z-depth-1">
+                  <div className="">
                     <input
                       ref="name"
-                      placeholder="Name"
+                      placeholder="Create a New Task"
                       type="text"
-                      className="validate green accent-2"
-                      minlength="5"
+                      className="validate teal"
+                      minLength="5"
+                      id="create-new-task"
                       required
                     />
-                    <div className="fixed-action-btn horizontal">
-                      <button className=" todo-top-add btn-floating btn-large waves-effect waves-light red right">
-                        <i className="material-icons">add</i>
-                      </button>
-                    </div>
+                    <button className=" todo-top-add-button btn-floating btn-large waves-effect waves-light red right">
+                      <i className="material-icons">add</i>
+                    </button>
                   </div>
                 </div>
               </div>

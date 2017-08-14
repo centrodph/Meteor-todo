@@ -4,6 +4,11 @@ export default class TodoLogicUser {
       this.props.history.push(`/todo/delete/${_id}`);
     });
   }
+  complete(_id) {
+    Meteor.call('todocollection.complete', _id, (error, todoId) => {
+      this.props.history.push(`/`);
+    });
+  }
   update(_id, name, description) {
     Meteor.call(
       'todocollection.update',

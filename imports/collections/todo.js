@@ -7,10 +7,26 @@ Meteor.methods({
     return TodoCollection.insert({
       name,
       description,
+      complete: false,
       createdAt: new Date(),
       updatedAt: new Date(),
       owner: this.userId
     });
+  },
+  'todocollection.complete': function(todoId) {
+    check(this.userId, String);
+    return TodoCollection.update(
+      {
+        _id: { $eq: todoId },
+        owner: { $eq: this.userId }
+      },
+      {
+        $set: {
+          complete: true,
+          updatedAt: new Date()
+        }
+      }
+    );
   },
   'todocollection.update': function(todoId, name, description) {
     check(this.userId, String);

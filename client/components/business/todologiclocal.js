@@ -8,18 +8,23 @@ export default class TodoLogicLocal {
     this.props.mytodos = mytodos;
     this.props.history.push(`/todo/delete/${_id}`);
   }
+  complete(_id) {
+    const list = JSON.parse(localStorage.getItem('todos')) || [];
+    let updatedList = list.map(todo => {
+      if (todo._id == _id) todo.complete = true;
+      return todo;
+    });
+    localStorage.setItem('todos', JSON.stringify(updatedList));
+    this.props.history.push('/');
+  }
   update(_id, name, description) {
     const list = JSON.parse(localStorage.getItem('todos')) || [];
     let updatedList = list.map(todo => {
-      if (todo._id == _id)
-        return {
-          _id,
-          name,
-          description,
-          createdAt: todo.createdAt,
-          updatedAt: new Date()
-        };
-
+      if (todo._id == _id) {
+        todo.name = name;
+        todo.description = description;
+        todo.updatedAt = new Date();
+      }
       return todo;
     });
     localStorage.setItem('todos', JSON.stringify(updatedList));
@@ -33,6 +38,7 @@ export default class TodoLogicLocal {
     this.props.mytodos.push({
       _id: todoId,
       name,
+      complete: false,
       createdAt: new Date(),
       updatedAt: new Date()
     });

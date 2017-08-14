@@ -1,10 +1,58 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import '{}/node_modules/materialize-css/sass/materialize.scss';
+@import "{}/node_modules/bourbon/app/assets/stylesheets/_bourbon.scss";
+body {
+  font-weight: 300;
+}
 
+/**
+Home page
+**/
 .todo-top-add {
-  padding: 0 10px;
+  margin: 15px 0;
+  padding: 8px 10px;
   position: relative;
-  .fixed-action-btn {
+  color: white;
+  @include border-top-radius(5px);
+  @include border-bottom-radius(5px);
+  input#create-new-task {
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 90%;
+    ::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: darken(white, 10%);
+    }
+    ::-moz-placeholder {
+      /* Firefox 19+ */
+      color: darken(white, 10%);
+    }
+    :-ms-input-placeholder {
+      /* IE 10+ */
+      color: darken(white, 10%);
+    }
+    :-moz-placeholder {
+      /* Firefox 18- */
+      color: darken(white, 10%);
+    }
+  }
+  .todo-top-add-button {
     position: absolute;
+    right: 10px;
+    top: 3px;
+  }
+}
+.todo-box {
+  margin: 15px 0;
+  padding: 8px 10px;
+  position: relative;
+  h3 {
+    a {
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 120%;
+      @extend .teal-text;
+    }
   }
 }
