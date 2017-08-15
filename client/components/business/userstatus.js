@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import TodoLogicLocal from './todologiclocal';
+import TodoLogicUser from './todologicuser';
 
 class UserStatus extends Component {
   constructor(props) {
     super(props);
+    this.logic = new TodoLogicLocal(); //Default Logic
+    if (this.checkUser()) {
+      this.logic = new TodoLogicUser();
+    }
   }
   /**
    * Custom interface to check user

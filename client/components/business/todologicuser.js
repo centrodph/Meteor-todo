@@ -9,7 +9,7 @@ export default class TodoLogicUser {
       this.props.history.push(`/`);
     });
   }
-  update(_id, name, description) {
+  update(_id, name, description, history) {
     Meteor.call(
       'todocollection.update',
       _id,
@@ -21,8 +21,8 @@ export default class TodoLogicUser {
     );
   }
   create(name) {
-    Meteor.call('todocollection.create', name, null, (error, todoId) => {
-      this.props.history.push(`/todo/${todoId}`);
+    Meteor.call('todocollection.create', name, null, (error, _id) => {
+      this.props.history.push(`/todo/${_id}?created=true`);
     });
   }
 }

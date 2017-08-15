@@ -30,6 +30,7 @@ const routes = (
       <Route path="*" component={Header} />
       <Route exact path="/" component={MyTodos} />
       <Route exact path="/todo/delete/:todoId" component={MyTodos} />
+      <Route exact path="/todo/complete/:todoId" component={MyTodos} />
       <Route exact path="/todo/:todoId" component={TodoForm} />
       <Route path="/signup" component={SignUp} />
       <Route path="/signin" component={LoginForm} />
