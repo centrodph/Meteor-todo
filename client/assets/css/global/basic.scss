@@ -56,3 +56,81 @@ Home page
     }
   }
 }
+
+//Todo List
+
+.todo-box {
+  position: relative;
+  @include border-top-radius(5px);
+  @include border-bottom-radius(5px);
+  h3 {
+    margin: 0;
+    font-size: 14px;
+  }
+  p {
+    font-size: 11px;
+  }
+}
+
+.todo-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  a {
+    margin: 0 3px;
+  }
+  .remove-task {
+    @extend .red-text;
+    i {
+      font-size: 26px;
+    }
+    &:hover {
+      @extend .text-darken-4;
+    }
+  }
+  .complete-task {
+    @extend .teal-text;
+    i {
+      border: solid 1px;
+      border-radius: 50%;
+      &:hover,
+      &.done {
+        color: white;
+        @extend .teal;
+      }
+    }
+  }
+}
+
+//login
+.login-contener {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .login-box {
+    flex-shrink: 1;
+  }
+  h3 {
+    text-align: center;
+  }
+  .form-input {
+    label {
+    }
+    input {
+    }
+    button {
+    }
+  }
+}
+
+//Footer
+footer {
+  border-top: solid 1px #ccc;
+  padding: 20px;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+}
