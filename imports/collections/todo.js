@@ -13,7 +13,7 @@ Meteor.methods({
       owner: this.userId
     });
   },
-  'todocollection.complete': function(todoId) {
+  'todocollection.complete': function(todoId, status) {
     check(this.userId, String);
     return TodoCollection.update(
       {
@@ -22,7 +22,7 @@ Meteor.methods({
       },
       {
         $set: {
-          complete: true,
+          complete: status,
           updatedAt: new Date()
         }
       }

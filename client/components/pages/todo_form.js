@@ -19,8 +19,7 @@ class TodoForm extends UserStatus {
     event.preventDefault();
     const _id = this.props.match.params.todoId;
     const { name, description } = this.refs;
-    this.logic.update(_id, name.value, description.value);
-    this.props.history.push(`/?${_id}`);
+    this.logic.update.call(this, _id, name.value, description.value);
   }
 
   render() {

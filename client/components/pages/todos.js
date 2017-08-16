@@ -10,12 +10,7 @@ class MyTodos extends UserStatus {
   }
   createNewTask(event) {
     event.preventDefault();
-    if (!this.checkUser()) {
-      const _id = this.logic.create(this.refs.name.value);
-      this.props.history.push(`/todo/${_id}?created=true`);
-    } else {
-      this.logic.create.call(this, this.refs.name.value);
-    }
+    this.logic.create.call(this, this.refs.name.value);
   }
   getList() {
     return this.props.mytodos.map((todo, index) => {

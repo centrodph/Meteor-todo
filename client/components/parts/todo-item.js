@@ -13,17 +13,26 @@ class TodoItem extends UserStatus {
       ? 'todo-box odd grey lighten-5 z-depth-1'
       : 'todo-box even grey lighten-4 z-depth-1';
   }
-  completeTask(_id) {
-    this.logic.complete(_id);
-    this.props.history.push(`/todo/complete/${_id}`);
+  completeTask(_id, status) {
+    this.logic.complete.call(this, _id, status);
   }
   removeTask(_id) {
-    this.logic.remove(_id);
-    this.props.history.push(`/todo/delete/${_id}`);
+    this.logic.remove.call(this, _id);
   }
+  /**
+   * Navigate to TodoForm for update
+   * @method updateTask
+   * @param  {[number]}   _id [TodoId]
+   * @return {[void]}
+   */
   updateTask(_id) {
     this.props.history.push(`/todo/${_id}`);
   }
+  /**
+   * Render Todo Item
+   * @method render
+   * @return {[type]} [description]
+   */
   render() {
     const { todo } = this.props;
     return (
@@ -52,7 +61,7 @@ class TodoItem extends UserStatus {
               <a
                 href="javascript:void(0);"
                 className="complete-task"
-                onClick={this.completeTask.bind(this, todo._id)}
+                onClick={this.completeTask.bind(this, todo._id, !todo.complete)}
               >
                 <i
                   className={
